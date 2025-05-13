@@ -187,10 +187,10 @@ class TestDoubleLinkedList(unittest.TestCase):
     def test_get_index_error(self):
         list = dl()
         with self.assertRaises(IndexError):
-            list.get(12)
+            list[12]
         
         with self.assertRaises(IndexError):
-            list.get(-1)
+            list[-1]
     
     def test_remove_happy(self):
         expected = 0
@@ -345,6 +345,23 @@ class TestStack(unittest.TestCase):
         stack = s()
         with self.assertRaises(IndexError):
             stack.pop()
+    
+    def test_stack_peek(self):
+        stack = s()
+        
+        expected = 14
+        
+        stack.push(12)
+        stack.push(13)
+        stack.push(14)
+        
+        self.assertEqual(expected, stack.peek())
+    
+    def test_stack_peek_empty_raises_exception(self):
+        stack = s()
+        
+        with self.assertRaises(IndexError):
+            stack.peek()
 
 class TestQueue(unittest.TestCase):
     def test_queue_enqueue(self):
@@ -404,6 +421,12 @@ class TestQueue(unittest.TestCase):
         actual = queue.peek()
         
         self.assertEqual(expected, actual)
+    
+    def test_queue_peek_empty_raises_exception(self):
+        queue = q()
+        
+        with self.assertRaises(IndexError):
+            queue.peek()
 
 if __name__ == "__main__":
     unittest.main()

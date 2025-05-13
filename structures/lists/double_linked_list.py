@@ -48,14 +48,25 @@ class DoubleLinkedList(LinkedList):
             return self.remove()
         if self._count == 0:
             raise IndexError("List is empty")
-        dummy = self.traverse(index)
+        dummy = self.traverse(index, -1)
         ret = dummy.next.value
         dummy.next = dummy.next.next
-        dummy.next.previous = dummy
+        if dummy.next:
+            dummy.next.previous = dummy
         self._count -= 1
         return ret
     
     def removeLast(self):
         if self._count == 0:
             raise IndexError("List is empty")
-        return self.removeAt(self._count - 1)
+        ret = None
+        if self._count == 1:
+            ret = self._head.next.value
+            self._head.next = None
+            self._tail.previous = None
+        else:
+            ret = self._tail.previous.value
+            self._tail.previous = self._tail.previous.previous
+            self._tail.previous.next = None
+        self._count -= 1
+        return ret

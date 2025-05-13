@@ -10,6 +10,12 @@ class LinkedList(JList):
     def __getitem__(self, key):
         return self.get(key)
     
+    def __setitem__(self, key, value):
+        dummy = self.traverse(key)
+        if not dummy.next:
+            raise IndexError("Index out of bounds")
+        dummy.next.value = value
+    
     def traverse(self, amount, offset = 0):
         dummy = self._head
         if amount > self._count + offset or amount < 0:

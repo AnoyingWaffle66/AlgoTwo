@@ -20,4 +20,4 @@ class Stack():
         self.__list.insert(value, 0)
     
     def __str__(self):
-        return self.__list.__str__()
+        return str(self.__list)

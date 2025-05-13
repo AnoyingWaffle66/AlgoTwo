@@ -11,7 +11,7 @@ class Queue():
         return self.__doubleList.search(value) != -1
     
     def peek(self):
-        return self.__doubleList._tail.previous.value
+        return self.__doubleList.get(self.__doubleList._count - 1)
     
     def dequeue(self):
         return self.__doubleList.removeLast()
@@ -20,4 +20,4 @@ class Queue():
         self.__doubleList.insert(value, 0)
     
     def __str__(self):
-        return self.__doubleList.__str__()
+        return str(self.__doubleList)
