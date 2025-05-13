@@ -47,10 +47,18 @@ class TestLinkedList(unittest.TestCase):
     def test_get_index_error(self):
         list = ll()
         with self.assertRaises(IndexError):
-            list.get(12)
+            list[12]
         
         with self.assertRaises(IndexError):
-            list.get(-1)
+            list[-1]
+    
+    def test_get(self):
+        list = ll()
+        list.add(1)
+        list.add(2)
+        
+        self.assertEqual(1, list[0])
+        self.assertEqual(2, list[1])
     
     def test_remove_happy(self):
         expected = 0

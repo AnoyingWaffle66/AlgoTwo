@@ -7,6 +7,9 @@ class LinkedList(JList):
         self._head = Node()
         self._count = 0
     
+    def __getitem__(self, key):
+        return self.get(key)
+    
     def traverse(self, amount, offset = 0):
         dummy = self._head
         if amount > self._count + offset or amount < 0:
