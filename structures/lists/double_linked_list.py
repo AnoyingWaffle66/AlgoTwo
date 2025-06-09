@@ -4,8 +4,8 @@ from structures.lists.double_node import DoubleNode
 class DoubleLinkedList(LinkedList):
     def __init__(self):
         super().__init__()
-        self._head = DoubleNode()
-        self._tail = DoubleNode()
+        self._head: DoubleNode = DoubleNode()
+        self._tail: DoubleNode = DoubleNode()
     
     def add(self, value):
         new_node = DoubleNode(value)

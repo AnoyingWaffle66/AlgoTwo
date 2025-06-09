@@ -4,7 +4,7 @@ from structures.lists.node import Node
 class LinkedList(JList):
     def __init__(self):
         super().__init__()
-        self._head = Node()
+        self._head: Node = Node()
         self._count = 0
     
     def __getitem__(self, key):
@@ -16,7 +16,7 @@ class LinkedList(JList):
             raise IndexError("Index out of bounds")
         dummy.next.value = value
     
-    def traverse(self, amount, offset = 0):
+    def traverse(self, amount, offset = 0) -> Node:
         dummy = self._head
         if amount > self._count + offset or amount < 0:
             raise IndexError("Index out of bounds")
