@@ -1,0 +1,5 @@
+{
+    "name": "Bob",
+    "Age": 42,
+    "type": "Zombie"
+}
